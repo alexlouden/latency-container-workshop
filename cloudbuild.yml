@@ -22,10 +22,10 @@ steps:
     args: [
         "run",
         "deploy",
-        "$PROJECT_ID", # We are naming the cloudrun service the same as our project id
+        "latency2020service", 
         "--image",
         "gcr.io/$PROJECT_ID/my_app:latest",
-        "--no-traffic", # Add this line
+        "--no-traffic",
         "--region",
         "australia-southeast1",
         "--platform",
@@ -38,8 +38,8 @@ steps:
         "run",
         "services",
         "update-traffic",
-        "$PROJECT_ID", # We are naming the cloudrun service the same as our project id
-        "--to-latest",
+        "latency2020service",
+        "--to-revisions=LATEST=50",
         "--region",
         "australia-southeast1",
         "--platform",
